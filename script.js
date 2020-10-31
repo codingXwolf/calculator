@@ -1,8 +1,16 @@
+let total = 0;
+const updateTotalDisplay = function(sum) {
+    document.write(total);
+}
+
+
 const add = function(input1,input2) {
+    updateTotalDisplay(input1 + input2)
     return input1 + input2;
 }
 
 const subtract = function(input1, input2) {
+    
     return input1 - input2
 }
 
