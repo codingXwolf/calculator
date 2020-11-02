@@ -1,22 +1,3 @@
-
-// red border box for guide
-let redBorderGuide = 'border: 2px solid red;'
-
-//Calculator 
-const calculatorContainerDiv = document.querySelector('#mainContainer');
-
-
-
-
-
-
-
-
-
-
-
-
-
 let total = 0;
 const updateTotalDisplay = function(sum) {
     document.write(total);
