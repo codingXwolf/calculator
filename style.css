@@ -1,25 +1,27 @@
 body {
-    display: grid;
     align-content: center;
 }
 
 #mainContainer {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(7,1);
     background-color: rgb(52, 209, 209);
-}
-
-#mainContainer > button {
-    text-align: center;
 }
 
 .grid-item-result {
     grid-column-start: 1;
-    grid-column-end: 9;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    justify-self: auto;
+    align-self: auto;
 }
 
-.grid-item-first > button {
-    color:blue;
+.grid-item-pl
+
+#mainContainer > button {
+    text-align: center;
 }
 
 
@@ -29,7 +31,7 @@ h1 {
 
 button {
     border: none;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -37,9 +39,4 @@ button {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 12px;
-}
-
-.result-row button {
-    grid-column-start: 1;
-    width: 15rem;
 }
