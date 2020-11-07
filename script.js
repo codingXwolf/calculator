@@ -8,9 +8,6 @@ const updateDisplay = value => {
 }
 
 
-
-
-
 const numberButtons = document.querySelectorAll('.number');
 numberButtons.forEach(numberButton => {
     numberButton.addEventListener('click', e => {
@@ -18,21 +15,12 @@ numberButtons.forEach(numberButton => {
     })
 })
 
-// const add = function(input1,input2) {
-//     updateTotalDisplay(input1 + input2)
-//     return input1 + input2;
-// }
+const add = (firstNum, secondNum) => {
+    return firstNum + secondNum;
+}
 
-// const subtract = function(input1, input2) {
-    
-//     return input1 - input2
-// }
-
-// const multiply = function(input1, input2) {
-//     return input1 * input2;
-// }
-
-// const divide = function(input1, input2) {
-//     return input1 / input2; 
-// }
-
+const operate = (operatorInput, firstNum, secondNum) => {
+    if(operatorInput === '+') {
+        return add(firstNum, secondNum);
+    }
+}
