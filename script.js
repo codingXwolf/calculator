@@ -1,7 +1,11 @@
-// let total = 0;
-// const updateTotalDisplay = function(sum) {
-//     document.write(total);
-// }
+let mainContainer = document.getElementById('mainContainer');
+
+
+
+
+
+
+
 
 // const buttonPress = document.querySelector('.button');
 // buttonPress.addEventListener('click', (e) => {
