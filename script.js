@@ -27,6 +27,10 @@ const multiply = (firstNum, secondNum) => {
     return firstNum * secondNum;
 }
 
+const divide = (firstNum, secondNum) => {
+    return firstNum / secondNum;
+}
+
 const operate = (operatorInput, firstNum, secondNum) => {
     if(operatorInput === '+') {
         return add(firstNum, secondNum);
@@ -38,5 +42,9 @@ const operate = (operatorInput, firstNum, secondNum) => {
 
     if(operatorInput === '*') {
         return multiply(firstNum, secondNum);
+    }
+
+    if(operatorInput === '/') {
+        return divide(firstNum, secondNum)
     }
 }
