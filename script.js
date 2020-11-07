@@ -1,17 +1,22 @@
+let defaultResult = 0;
 let mainContainer = document.getElementById('mainContainer');
+let resultDisplay = document.getElementById('resultId');
+resultDisplay.innerHTML = defaultResult;
+
+const updateDisplay = value => {
+   resultDisplay.innerHTML = value; 
+}
 
 
 
 
 
-
-
-
-// const buttonPress = document.querySelector('.button');
-// buttonPress.addEventListener('click', (e) => {
-//     console.log(e.target.value);
-// })
-
+const numberButtons = document.querySelectorAll('.number');
+numberButtons.forEach(numberButton => {
+    numberButton.addEventListener('click', e => {
+        updateDisplay(e.target.value);
+    })
+})
 
 // const add = function(input1,input2) {
 //     updateTotalDisplay(input1 + input2)

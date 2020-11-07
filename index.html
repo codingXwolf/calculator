@@ -9,33 +9,33 @@
 <body>
     <h1>Personal Calculator</h1>
     <div id="mainContainer">
-            <div class="grid-item" id="resultId">0</div>
+            <div class="grid-item" id="resultId"></div>
 
             <!-- AC All Clear -->
-            <button class="grid-item" type="button" value="all-clear">AC</button>
+            <button class="grid-item clear" type="button" value="clear">AC</button>
             <!-- Plus/Negative -->
-            <button class="grid-item" type="button" value="plus-negative">+/-</button>
-            <button class="grid-item" type="button" value="percent">%</button>
+            <button class="grid-item plus-negative" type="button" value=`${Math.sign()}`>+/-</button>
+            <button class="grid-item percent" type="button" value="%">%</button>
 
 
-            <button class="grid-item" type="button" value="divide">÷</button>
-            <button class="grid-item" type="button" value="multiply">x</button>
-            <button class="grid-item" type="button" value="subtract">-</button>
-            <button class="grid-item" type="button" value="add">+</button>
-            <button class="grid-item" type="button" value="equal">=</button>
+            <button class="grid-item divide" type="button" value="/">÷</button>
+            <button class="grid-item multiply" type="button" value="*">x</button>
+            <button class="grid-item minus" type="button" value="-">-</button>
+            <button class="grid-item add" type="button" value="+">+</button>
+            <button class="grid-item equal" type="button" value="=">=</button>
 
             
-            <button class="grid-item" type="button" value="7">7</button>
-            <button class="grid-item" type="button" value="8">8</button>
-            <button class="grid-item" type="button" value="9">9</button>
-            <button class="grid-item" type="button" value="4">4</button>
-            <button class="grid-item" type="button" value="5">5</button>
-            <button class="grid-item" type="button" value="6">4</button>
-            <button class="grid-item" type="button" value="1">1</button>
-            <button class="grid-item" type="button" value="2">2</button>
-            <button class="grid-item" type="button" value="3">3</button>
-            <button class="grid-item" type="button" value="0">0</button>
-            <button class="grid-item" type="button" value=".">.</button>
+            <button class="grid-item number" type="button" value="7">7</button>
+            <button class="grid-item number" type="button" value="8">8</button>
+            <button class="grid-item number" type="button" value="9">9</button>
+            <button class="grid-item number" type="button" value="4">4</button>
+            <button class="grid-item number" type="button" value="5">5</button>
+            <button class="grid-item number" type="button" value="6">4</button>
+            <button class="grid-item number" type="button" value="1">1</button>
+            <button class="grid-item number" type="button" value="2">2</button>
+            <button class="grid-item number" type="button" value="3">3</button>
+            <button class="grid-item number" type="button" value="0">0</button>
+            <button class="grid-item number" type="button" value=".">.</button>
     </div>
     <script src="script.js"></script>
 </body>
