@@ -23,6 +23,10 @@ const subtract = (firstNum, secondNum) => {
     return firstNum - secondNum;
 }
 
+const multiply = (firstNum, secondNum) => {
+    return firstNum * secondNum;
+}
+
 const operate = (operatorInput, firstNum, secondNum) => {
     if(operatorInput === '+') {
         return add(firstNum, secondNum);
@@ -30,5 +34,9 @@ const operate = (operatorInput, firstNum, secondNum) => {
 
     if(operatorInput === '-') {
         return subtract(firstNum, secondNum);
+    }
+
+    if(operatorInput === '*') {
+        return multiply(firstNum, secondNum);
     }
 }
