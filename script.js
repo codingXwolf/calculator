@@ -5,32 +5,27 @@ const calculatorData = {
     operator: null,
 }
 
+console.table(calculatorData);
 let mainContainer = document.getElementById('mainContainer');
-let resultDisplay = document.getElementById('resultId');
-resultDisplay.innerHTML = defaultResult;
+let resultDisplay = document.querySelector('#resultId');
+resultDisplay.innerHTML = calculatorData.displayValue;
 
-const updateUserInput = input => {
-    userInput = []
-    userInput.push(+input)
 
-    if(input === '+' || input === '-' || input === '*' || input === '/') {
-         userInput.push(input, 1);
-    }
-
-    console.log(userInput);
-    return userInput
+const updateDisplay = () => {
+    console.log(resultDisplay.value);
+   resultDisplay.value = calculatorData.displayValue; 
 }
+updateDisplay();
 
-const updateDisplay = value => {
-   resultDisplay.innerHTML = value; 
+const inputDigits = digit => {
+    const { displayValue } = calculatorData;
+    calculatorData.displayValue = displayValue === '0' ? digit : displayValue + digit;
 }
-
 
 const numberButtons = document.querySelectorAll('.number');
 numberButtons.forEach(numberButton => {
     numberButton.addEventListener('click', e => {
         updateDisplay(e.target.value);
-        updateUserInput(e.target.value);
     })
 })
 
