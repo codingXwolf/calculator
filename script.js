@@ -1,5 +1,10 @@
-let defaultResult = 0;
-let userInput;
+const calculatorData = {
+    displayValue: '0',
+    firstNum: null,
+    waitSecondOperand: false,
+    operator: null,
+}
+
 let mainContainer = document.getElementById('mainContainer');
 let resultDisplay = document.getElementById('resultId');
 resultDisplay.innerHTML = defaultResult;
