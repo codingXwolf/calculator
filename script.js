@@ -22,20 +22,44 @@ const inputDigits = digit => {
     calculatorData.displayValue = displayValue === '0' ? digit : displayValue + digit;
 }
 
-const numberButtons = document.querySelectorAll('.number');
-numberButtons.forEach(numberButton => {
-    numberButton.addEventListener('click', e => {
-        updateDisplay(e.target.value);
-    })
+const buttons = document.querySelector('#mainContainer');
+buttons.addEventListener('click', e => {
+    if (!e.target.matches('button')) {
+        return;
+    }
+
+     if (e.target.classList.contains("operator")) {
+       console.log("operator", e.target.value);
+       return;
+     }
+
+     if (e.target.classList.contains("decimal")) {
+       console.log("decimal", e.target.value);
+       return;
+     }
+
+     if (e.target.classList.contains("all-clear")) {
+       console.log("clear", e.target.value);
+       return;
+     }
+
+     console.log("digit", e.target.value);
 })
 
-const operatorButtons = document.querySelectorAll('.operator');
-operatorButtons.forEach(operatorButton => {
-    operatorButton.addEventListener('click', e => {
-        console.log(e.target.value);
-        updateUserInput(e.target.value)
-    })
-});
+// const numberButtons = document.querySelectorAll('.number');
+// numberButtons.forEach(numberButton => {
+//     numberButton.addEventListener('click', e => {
+//         updateDisplay(e.target.value);
+//     })
+// })
+
+// const operatorButtons = document.querySelectorAll('.operator');
+// operatorButtons.forEach(operatorButton => {
+//     operatorButton.addEventListener('click', e => {
+//         console.log(e.target.value);
+//         updateUserInput(e.target.value)
+//     })
+// });
 
 const add = (firstNum, secondNum) => {
     return firstNum + secondNum;
