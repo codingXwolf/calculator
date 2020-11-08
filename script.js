@@ -18,6 +18,7 @@ updateDisplay();
 const inputDigits = digit => {
     const { displayValue } = calculatorData;
     calculatorData.displayValue = displayValue === '0' ? digit : displayValue + digit;
+    updateDisplay();
 }
 
 const clearData = () => {
@@ -25,6 +26,7 @@ const clearData = () => {
     calculatorData.firstNum = null;
     calculatorData.waitSecondOperand = false;
     calculatorData.operator = null;
+    updateDisplay();
 }
 
 const buttons = document.querySelector('#mainContainer');
@@ -51,7 +53,7 @@ buttons.addEventListener('click', e => {
         console.log('clear', e.target.value);
         return;
     }
-    calculatorData.firstNum = e.target.value;
+    calculatorData.firstNum = inputDigits(e.target.value);
     console.table(calculatorData)
     console.log('digit', e.target.value);
 })
