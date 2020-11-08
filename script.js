@@ -5,7 +5,7 @@ let resultDisplay = document.getElementById('resultId');
 resultDisplay.innerHTML = defaultResult;
 
 const updateUserInput = input => {
-    userInput = [2]
+    userInput = []
     userInput.push(+input)
 
     if(input === '+' || input === '-' || input === '*' || input === '/') {
@@ -28,6 +28,14 @@ numberButtons.forEach(numberButton => {
         updateUserInput(e.target.value);
     })
 })
+
+const operatorButtons = document.querySelectorAll('.operator');
+operatorButtons.forEach(operatorButton => {
+    operatorButton.addEventListener('click', e => {
+        console.log(e.target.value);
+        updateUserInput(e.target.value)
+    })
+});
 
 const add = (firstNum, secondNum) => {
     return firstNum + secondNum;
