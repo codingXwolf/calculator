@@ -8,8 +8,6 @@ const calculatorData = {
 console.table(calculatorData);
 let mainContainer = document.getElementById('mainContainer');
 let resultDisplay = document.querySelector('#resultId');
-resultDisplay.innerHTML = calculatorData.displayValue;
-
 
 const updateDisplay = () => {
     console.log(resultDisplay.value);
@@ -22,44 +20,42 @@ const inputDigits = digit => {
     calculatorData.displayValue = displayValue === '0' ? digit : displayValue + digit;
 }
 
+const clearData = () => {
+    calculatorData.displayValue = '0';
+    calculatorData.firstNum = null;
+    calculatorData.waitSecondOperand = false;
+    calculatorData.operator = null;
+}
+
 const buttons = document.querySelector('#mainContainer');
 buttons.addEventListener('click', e => {
     if (!e.target.matches('button')) {
+      return;
+    }
+
+    if (e.target.classList.contains('operator')) {
+        calculatorData.operator = e.target.value;
+        console.table(calculatorData);
+        console.log('operator', e.target.value);
         return;
     }
 
-     if (e.target.classList.contains("operator")) {
-       console.log("operator", e.target.value);
-       return;
-     }
+    if (e.target.classList.contains('decimal')) {
+      console.log('decimal', e.target.value);
+      return;
+    }
 
-     if (e.target.classList.contains("decimal")) {
-       console.log("decimal", e.target.value);
-       return;
-     }
-
-     if (e.target.classList.contains("all-clear")) {
-       console.log("clear", e.target.value);
-       return;
-     }
-
-     console.log("digit", e.target.value);
+    if (e.target.classList.contains('clear')) {
+        clearData();
+        console.table(calculatorData);
+        console.log('clear', e.target.value);
+        return;
+    }
+    calculatorData.firstNum = e.target.value;
+    console.table(calculatorData)
+    console.log('digit', e.target.value);
 })
 
-// const numberButtons = document.querySelectorAll('.number');
-// numberButtons.forEach(numberButton => {
-//     numberButton.addEventListener('click', e => {
-//         updateDisplay(e.target.value);
-//     })
-// })
-
-// const operatorButtons = document.querySelectorAll('.operator');
-// operatorButtons.forEach(operatorButton => {
-//     operatorButton.addEventListener('click', e => {
-//         console.log(e.target.value);
-//         updateUserInput(e.target.value)
-//     })
-// });
 
 const add = (firstNum, secondNum) => {
     return firstNum + secondNum;
