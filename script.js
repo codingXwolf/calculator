@@ -1,7 +1,20 @@
 let defaultResult = 0;
+let userInput;
 let mainContainer = document.getElementById('mainContainer');
 let resultDisplay = document.getElementById('resultId');
 resultDisplay.innerHTML = defaultResult;
+
+const updateUserInput = input => {
+    userInput = [2]
+    userInput.push(+input)
+
+    if(input === '+' || input === '-' || input === '*' || input === '/') {
+         userInput.push(input, 1);
+    }
+
+    console.log(userInput);
+    return userInput
+}
 
 const updateDisplay = value => {
    resultDisplay.innerHTML = value; 
@@ -12,6 +25,7 @@ const numberButtons = document.querySelectorAll('.number');
 numberButtons.forEach(numberButton => {
     numberButton.addEventListener('click', e => {
         updateDisplay(e.target.value);
+        updateUserInput(e.target.value);
     })
 })
 
@@ -47,4 +61,9 @@ const operate = (operatorInput, firstNum, secondNum) => {
     if(operatorInput === '/') {
         return divide(firstNum, secondNum)
     }
+
+    if(operatorInput === 'plus-negative') {
+        return Math.sign(firstNum);
+    }
 }
+
