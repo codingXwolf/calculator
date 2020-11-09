@@ -1,7 +1,7 @@
 const calculatorData = {
     displayValue: '0',
     firstNum: null,
-    waitSecondOperand: false,
+    waitSecondNum: false,
     operator: null,
 }
 
@@ -16,9 +16,17 @@ const updateDisplay = () => {
 updateDisplay();
 
 const inputDigits = digit => {
-    const { displayValue } = calculatorData;
-    calculatorData.displayValue = displayValue === '0' ? digit : displayValue + digit;
-    updateDisplay();
+    if (calculatorData.waitSecondNum === true) {
+        calculatorData.displayValue = digit;
+        calculatorData.waitSecondNum = false;
+    } else {
+            calculatorData.displayValue =
+              calculatorData.displayValue === "0"
+                ? digit
+                : calculatorData.displayValue + digit;
+    }
+    updateDisplay()
+    console.table(calculatorData)
 }
 
 const inputDecimal = dot => {
@@ -27,10 +35,25 @@ const inputDecimal = dot => {
     }
 }
 
+const handleOperator = (nextOperator) => {
+    // convert displayValue to a floating-point number;
+    const convertInputValue = parseFloat(calculatorData.displayValue);
+    console.log(convertInputValue);
+
+    // verify that firstNum is null and convertInputValue is not a Nan value
+    if(calculatorData.firstNum === null && !isNaN(convertInputValue)) {
+        calculatorData.firstNum = convertInputValue
+    }
+
+    calculatorData.waitSecondNum = true;
+    calculatorData.operator = nextOperator;
+};
+
+
 const clearData = () => {
     calculatorData.displayValue = '0';
     calculatorData.firstNum = null;
-    calculatorData.waitSecondOperand = false;
+    calculatorData.waitSecondNum = false;
     calculatorData.operator = null;
     updateDisplay();
 }
@@ -42,7 +65,8 @@ buttons.addEventListener('click', e => {
     }
 
     if (e.target.classList.contains('operator')) {
-        calculatorData.operator = e.target.value;
+        handleOperator(e.target.value);
+        updateDisplay();
         console.table(calculatorData);
         console.log('operator', e.target.value);
         return;
@@ -61,7 +85,7 @@ buttons.addEventListener('click', e => {
         console.log('clear', e.target.value);
         return;
     }
-    calculatorData.firstNum = inputDigits(e.target.value);
+    inputDigits(e.target.value);
     console.table(calculatorData)
     console.log('digit', e.target.value);
 })
