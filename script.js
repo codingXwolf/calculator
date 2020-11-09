@@ -21,6 +21,12 @@ const inputDigits = digit => {
     updateDisplay();
 }
 
+const inputDecimal = dot => {
+    if (!calculatorData.displayValue.includes(dot)) {
+        calculatorData.displayValue += dot;
+    }
+}
+
 const clearData = () => {
     calculatorData.displayValue = '0';
     calculatorData.firstNum = null;
@@ -44,6 +50,8 @@ buttons.addEventListener('click', e => {
 
     if (e.target.classList.contains('decimal')) {
       console.log('decimal', e.target.value);
+      inputDecimal(e.target.value);
+      updateDisplay();
       return;
     }
 
