@@ -75,25 +75,23 @@ const divide = (firstNum, secondNum) => {
     return firstNum / secondNum;
 }
 
-const operate = (operatorInput, firstNum, secondNum) => {
-    if(operatorInput === '+') {
-        return add(firstNum, secondNum);
-    }
-
-    if(operatorInput === '-') {
-        return subtract(firstNum, secondNum);
-    }
-
-    if(operatorInput === '*') {
-        return multiply(firstNum, secondNum);
-    }
-
-    if(operatorInput === '/') {
-        return divide(firstNum, secondNum)
-    }
-
-    if(operatorInput === 'plus-negative') {
-        return Math.sign(firstNum);
+const operate = (operator, firstNum, secondNum) => {
+    
+    switch (operator) {
+        case '+':
+            return firstNum + secondNum;
+        case '-':
+            return firstNum - secondNum;
+        case '*':
+            return firstNum * secondNum;
+        case '/':
+            return firstNum / secondNum;
+        case 'plus-negative':
+            return Math.sign(firstNum);
+        case '%':
+            return Math.round(firstNum * 100);
+        default:
+            break;
     }
 }
 
