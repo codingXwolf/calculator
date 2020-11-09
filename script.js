@@ -59,22 +59,6 @@ buttons.addEventListener('click', e => {
 })
 
 
-const add = (firstNum, secondNum) => {
-    return firstNum + secondNum;
-}
-
-const subtract = (firstNum, secondNum) => {
-    return firstNum - secondNum;
-}
-
-const multiply = (firstNum, secondNum) => {
-    return firstNum * secondNum;
-}
-
-const divide = (firstNum, secondNum) => {
-    return firstNum / secondNum;
-}
-
 const operate = (operator, firstNum, secondNum) => {
     
     switch (operator) {
@@ -87,7 +71,7 @@ const operate = (operator, firstNum, secondNum) => {
         case '/':
             return firstNum / secondNum;
         case 'plus-negative':
-            return Math.sign(firstNum);
+            return firstNum < 0 ? -Math.abs(firstNum) : Math.abs(firstNum);
         case '%':
             return Math.round(firstNum * 100);
         default:
