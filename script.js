@@ -38,11 +38,16 @@ const inputDecimal = dot => {
 const handleOperator = (nextOperator) => {
     // convert displayValue to a floating-point number;
     const convertInputValue = parseFloat(calculatorData.displayValue);
-    console.log(convertInputValue);
 
     // verify that firstNum is null and convertInputValue is not a Nan value
     if(calculatorData.firstNum === null && !isNaN(convertInputValue)) {
-        calculatorData.firstNum = convertInputValue
+        calculatorData.firstNum = convertInputValue;
+    } else if (calculatorData.operator) {
+        const result = operate(calculatorData.operator, convertInputValue, calculatorData.firstNum);
+    
+        calculatorData.displayValue = `${parseFloat(result.toFixed(7))}`;
+
+        calculatorData.firstNum = result;
     }
 
     calculatorData.waitSecondNum = true;
@@ -93,21 +98,21 @@ buttons.addEventListener('click', e => {
 
 const operate = (operator, firstNum, secondNum) => {
     
-    switch (operator) {
-        case '+':
-            return firstNum + secondNum;
-        case '-':
-            return firstNum - secondNum;
-        case '*':
-            return firstNum * secondNum;
-        case '/':
-            return firstNum / secondNum;
-        case 'plus-negative':
-            return firstNum < 0 ? -Math.abs(firstNum) : Math.abs(firstNum);
-        case '%':
-            return Math.round(firstNum * 100);
-        default:
-            break;
-    }
+      if (operator === '+') {
+        return firstNum + secondNum;
+      } else if (operator === '-') {
+        return firstNum - secondNum;
+      } else if (operator === '*') {
+        return firstNum * secondNum;
+      } else if (operator === '/') {
+        return firstNum / secondNum;
+      }
+
+      return secondNum;
+        // case 'plus-negative':
+        //     return firstNum < 0 ? -Math.abs(firstNum) : Math.abs(firstNum);
+        // case '%':
+        //     return Math.round(firstNum * 100);
+
 }
 
